@@ -1,0 +1,35 @@
+🔸 utwórz tabelę (1 pkt) 
+CREATE TABLE Pracownicy (
+    ID_pracownika INT PRIMARY KEY,
+    Imie VARCHAR(50),
+    Nazwisko VARCHAR(50),
+    Stanowisko VARCHAR(50),
+    Data_zatrudnienia DATE,
+    Wynagrodzenie DECIMAL(10, 2)
+);
+
+
+🔸 usuń tabelę (1 ptk)
+DROP TABLE pracownicy;
+
+🔸 stwórz tabelę Countries z kolumnami: 1.id; 2.Country; 3.Capital; 4. dodatkowy punkt jeśli domyślisz się jak dodać obrazek flagi (za pomocą varchar) (1 pkt)
+
+CREATE TABLE Countries (
+    id INT PRIMARY KEY,
+    Country VARCHAR(50) NOT NULL,
+    Capital VARCHAR(50) NOT NULL,
+    FlagImage VARCHAR(255) - Kolumna przechowująca ścieżkę do obrazka flagi
+);
+
+
+🔹 tylko mieszkańców Gdańska (1 ptk)
+SELECT * FROM People WHERE city = 'Gdańsk';
+
+🔹 liczbę mieszkańców Gdańska (1 ptk)
+SELECT COUNT(*) FROM People WHERE city = 'Gdańsk';
+
+🔹 średnią wieku mężczyzn i średnią wieku kobiet (2 ptk)
+SELECT AVG(CASE WHEN gender = 'Male' THEN age END) AS avg_male_age, AVG(CASE WHEN gender = 'Female' THEN age END) AS avg_female_age FROM People;
+
+🔹 liczbę mieszkańców dla poszczególnych miast - nazwa i liczba (2 ptk)
+SELECT city, COUNT(*) AS population FROM People GROUP BY city;
